@@ -1,32 +1,18 @@
 <?php
 
-require_once __DIR__ . '/Models/Prodotto.php';
-require_once __DIR__ . '/Models/Categoria.php';
 require_once __DIR__ . '/Models/SubCategories.php';
+require_once __DIR__ . '/Models/Categoria.php';
+require_once __DIR__ . '/Models/Prodotto.php';
 
-//Lista delle categorie del mondo animale (es: cani, gatti o pesci)
-//creo istanza Prodotti per cani
-$dog = new Categoria('Cani');
-$stringDog = $dog->getName();
+// subcategories
+$toy = 'Toy';
+$food = 'Food';
+$qol = 'Quality Of Life';
 
-//creo istanza prodotti per gatti
-$cat = new Categoria('Gatti');
-$stringCat = $cat->getName();
+// categories
+$dog = 'Cani';
+$cats = 'Gatti';
 
+$prodotto1 = new SubCategories($toy, new Categoria($dog), new Prodotto('Name', 40, 'Description'));
 
-//Lista delle sottocategorie (giochi, cibo, cucce etc)
-$subFood = new SubCategories('Cibo');
-$stringFood = $subFood->getType();
-
-$subToys = new SubCategories('Giocattolo');
-$stringToys = $subToys->getType();
-
-$subQol = new SubCategories('Cuccia');
-$stringQol = $subQol->getType();
-
-//Lista dei prodotti 
-$prodotto1 = new Prodotto('Collare', 20, 'Descrizione Prodotto', $stringDog, $stringQol);
 var_dump($prodotto1);
-
-$prodotto2 = new Prodotto('Erba Gatta', 25, 'Descrizione Prodotto', $stringCat, $stringFood);
-var_dump($prodotto2);
